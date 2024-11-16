@@ -1,2 +1,2 @@
 OPENAI_API_KEY =""
-OPENAI_ORGID =  "'"
+OPENAI_ORGID =  ""
