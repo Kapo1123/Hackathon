@@ -6,3 +6,25 @@ openAiClient = OpenAI(
     api_key = config.OPENAI_API_KEY,
     organization = config.OPENAI_ORGID
 )
+class generate_reposnse:
+    def __init__(self, Goal, Content, Timeline, Budget):
+        self.goal = Goal
+        self.content = Content
+        self.timeline = Timeline
+        self.budget = Budget
+    def generate_response(self):
+        messages=[]
+        with open('file.txt', 'r') as file:
+            content = file.read()
+        system_prompt=content
+        messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "system", "content": f"coaches :{coaches["{self.goal}"]}" })
+        messages.append({"role": "user", "content": f" goal: {self.goal}, content: {self.content}, timeline: {self.timeline}, budget: {self.budget}"})
+        
+        response = openAiClient.Completion.create(
+            model="gpt-4o-mini",
+            messages=messages,
+        )
+        print(response.choices[0].message.content)
+
+

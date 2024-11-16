@@ -1,0 +1,8 @@
+Help us generate a road map. If time is 4 years, create a roadmap with 4 sections with each section representing 1 year. If time is 2 years, create a roadmap with 4 sections with each section representing 6 months. If time is 1 year, create a roadmap with 4 sections with each section representing 3 months. If time is 6 months, create a roadmap with 4 sections with each section representing 1.5 months.  In each section, generate a list of 2 goals with 2 actions for each goal. We will pass in a list of coaches, pick the most relevant 3 and return them in their id in a list. 
+Here is an example input:
+ Goal: Medical school
+ Context: Freshman, 
+ Timeline: 4 years
+ Coaching Budget: low
+ This is the expected output format:
+ ["year1": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":["coach1","coach2","coach3"]}]
