@@ -27,8 +27,9 @@ class Budget:
             raise ValueError(f"Invalid budget. Allowed budget are: {', '.join(self.ALLOWED_GOALS)}")
         self.budget = budget
 class gpt_reponse:
-    def __init__(self):
-        pass
+    def __init__(self, list_of_dict):
+        self.list_of_dict = list_of_dict
+        
 class coach:
     def __init__(self,id,name,coach_on):
         self.id = id

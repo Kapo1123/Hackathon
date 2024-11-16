@@ -1,10 +1,13 @@
 from openai import OpenAI
-import config as config
-import json
-from core.utils import Goal, Context, Timeline, Budget, coaches
 import os
 current_directory = os.getcwd()
-print(f"Current Working Directory: {current_directory}")
+print(f"Current working directory: {current_directory}")
+import backend.config as config
+import json
+from core.utils import Goal, Context, Timeline, Budget, coaches, gpt_reponse
+# import os
+# current_directory = os.getcwd()
+# print(f"Current Working Directory: {current_directory}")
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 client = OpenAI()
 Message = ChatCompletionMessageParam
@@ -30,12 +33,18 @@ class generate_reposnse:
             model="gpt-4o-mini",
             messages=messages,
         )
-        print(response.choices[0].message.content)
+        data_json = (response.choices[0].message.content)
+        data_json = data_json.strip("```").strip()
+        data = json.loads(data_json[4:])
+        return_value = gpt_reponse(data)
+        return return_value
+            
+
 
 
 goal = Goal("medical_school")
 context = Context("sophomore")
-timeline = Timeline("2 years")
+timeline = Timeline("1 year")
 budget = Budget("Middle")
 test_generate = generate_reposnse(goal, context, timeline, budget)
 test_generate.generate_response()
