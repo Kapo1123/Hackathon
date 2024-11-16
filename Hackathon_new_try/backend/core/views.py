@@ -8,5 +8,5 @@ class HomeView(View):
     
 class SurveyView(View):
     def get(self, request):
-        print(get_template('core/survey.html'))
+        # print(get_template('core/survey.html'))
         return render(request, 'core/survey.html')
