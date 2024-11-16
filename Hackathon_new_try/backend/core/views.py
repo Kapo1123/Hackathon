@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.views.generic import View
 from django.template.loader import get_template
-from backend.core.chatgpt import generate_reposnse
-from utils import Goal, Context, Timeline, coach
+from core.chatgpt import generate_reposnse
+from core.utils import Goal, Context, Timeline, coach
 
 class HomeView(View):
     def get(self, request):
