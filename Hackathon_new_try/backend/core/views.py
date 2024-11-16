@@ -5,3 +5,8 @@ class HomeView(View):
     def get(self, request):
         print(get_template('core/home.html'))
         return render(request, 'core/home.html')
+    
+class SurveyView(View):
+    def get(self, request):
+        print(get_template('core/survey.html'))
+        return render(request, 'core/survey.html')
