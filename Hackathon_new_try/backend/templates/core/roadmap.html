@@ -4,7 +4,114 @@
 <head>
   <meta charset="UTF-8">
   <title>Roadmap</title>
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
+
+  <!-- Include CSS directly in the HTML -->
+  <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styles */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    /* Header styles */
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header h1 {
+      font-size: 2.5em;
+      color: black;
+    }
+
+    /* Roadmap container styles */
+    .roadmap {
+      display: flex;
+      flex-direction: column; /* Stack the squares vertically */
+      gap: 20px; /* Space between squares */
+      align-items: center; /* Center align the squares */
+    }
+
+    /* General roadmap item styles */
+    .roadmap-item {
+      border-radius: 8px;
+      border: 4px solid;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      width: 80%; /* Adjust as needed */
+      padding: 20px;
+      max-width: 600px;
+    }
+
+    /* Specific styles for each item */
+    .roadmap-item:nth-child(1) {
+      background-color: #CDF6E8;
+      border-color: #9ac9ba;
+    }
+
+    .roadmap-item:nth-child(2) {
+      background-color: #1D7E7C;
+      border-color: #0f4f4e;
+      color: white; /* Text color for contrast */
+    }
+
+    .roadmap-item:nth-child(3) {
+      background-color: #FFE482;
+      border-color: #cdb55d;
+    }
+
+    .roadmap-item:nth-child(4) {
+      background-color: #FF7640;
+      border-color: #a64c28;
+      color: white; /* Text color for contrast */
+    }
+
+    /* Heading styles */
+    h2 {
+      font-size: 1.8em;
+      margin-bottom: 15px;
+      color: inherit; /* Inherit color from parent */
+    }
+
+    /* List styles */
+    ul {
+      list-style-type: none;
+    }
+
+    ul li {
+      margin-bottom: 10px;
+      font-size: 1.1em;
+    }
+
+    /* Footer styles */
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #777;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .roadmap {
+        width: 100%;
+      }
+
+      .roadmap-item {
+        width: 100%;
+        max-width: none;
+      }
+    }
+  </style>
 </head>
 <body>
 
@@ -17,13 +124,19 @@
     <div class="roadmap-item">
       <h2>{{ forloop.counter }}) {{ key }}</h2>
       <ul>
-        {% for goal in value.goal %}
-        <li><strong>Goal:</strong> {{ goal }}</li>
-        {% endfor %}
-        {% for action in value.action %}
-        <li><strong>Action:</strong> {{ action }}</li>
-        {% endfor %}
-        <li><strong>Coach:</strong> {{ value.coaches }}</li>
+        <!-- Display one Goal -->
+        {% if value.goal %}
+          <li><strong>Goal:</strong> {{ value.goal.0 }}</li>
+        {% endif %}
+
+        <!-- Display two Actions -->
+        {% if value.action %}
+          {% for action in value.action|slice:":2" %}
+            <li><strong>Action:</strong> {{ action }}</li>
+          {% endfor %}
+        {% endif %}
+
+        <li><strong>Coaches:</strong> {{ value.coaches }}</li>
       </ul>
     </div>
     {% endfor %}
