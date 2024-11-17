@@ -1,11 +1,10 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Roadmap</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
 
@@ -14,45 +13,20 @@
   </header>
 
   <section class="roadmap">
-    <!-- Square 1 -->
+    {% for key, value in roadmap_data.items %}
     <div class="roadmap-item">
-      <h2>1)</h2>
+      <h2>{{ forloop.counter }}) {{ key }}</h2>
       <ul>
-        <li>Goal: Learn HTML and CSS</li>
-        <li>Action: Build a portfolio website</li>
-        <li>Coaching: Learn JavaScript</li>
+        {% for goal in value.goal %}
+        <li><strong>Goal:</strong> {{ goal }}</li>
+        {% endfor %}
+        {% for action in value.action %}
+        <li><strong>Action:</strong> {{ action }}</li>
+        {% endfor %}
+        <li><strong>Coach:</strong> {{ value.coaches }}</li>
       </ul>
     </div>
-
-    <!-- Square 2 -->
-    <div class="roadmap-item">
-      <h2>2)</h2>
-      <ul>
-        <li>Goal: Learn HTML and CSS</li>
-        <li>Action: Build a portfolio website</li>
-        <li>Coaching: Learn JavaScript</li>
-      </ul>
-    </div>
-
-    <!-- Square 3 -->
-    <div class="roadmap-item">
-      <h2>3)</h2>
-      <ul>
-        <li>Goal: Learn HTML and CSS</li>
-        <li>Action: Build a portfolio website</li>
-        <li>Coaching: Learn JavaScript</li>
-      </ul>
-    </div>
-
-    <!-- Square 4 -->
-    <div class="roadmap-item">
-      <h2>4)</h2>
-      <ul>
-        <li>Goal: Learn HTML and CSS</li>
-        <li>Action: Build a portfolio website</li>
-        <li>Coaching: Learn JavaScript</li>
-      </ul>
-    </div>
+    {% endfor %}
   </section>
 
 </body>

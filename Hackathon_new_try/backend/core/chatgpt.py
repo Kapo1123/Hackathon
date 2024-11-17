@@ -36,6 +36,10 @@ class generate_reposnse:
         data_json = (response.choices[0].message.content)
         data_json = data_json.strip("```").strip()
         data = json.loads(data_json[4:])
+        for key in data.keys():
+            coach_id = data[key]["coaches"]
+            coach_name = coaches_list.coaches[coach_id]["name"]
+            data[key]["coaches"]= coach_name
         return_value = gpt_reponse(data)
         return return_value
             
