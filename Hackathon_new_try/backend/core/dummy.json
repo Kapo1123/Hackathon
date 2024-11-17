@@ -1,4 +1,4 @@
-{"medical_school":
+{"med_school":
     [
         {"id": 1, "name": "Alice Smith", "coach_on": ["School Selection", "Personal Statement"]},
         {"id": 2, "name": "Bob Johnson", "coach_on": ["Financial Aid & Scholarships", "Application Strategy"]},

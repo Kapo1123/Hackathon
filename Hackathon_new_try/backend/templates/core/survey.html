@@ -57,7 +57,8 @@
 <body>
     <div class="survey-container">
         <h1>Career Goals Survey</h1>
-        <form action="#" method="post">
+        <form action="roadmap" method="post">
+            {%csrf_token%}
             <div class="form-group">
                 <label for="goal">What is your career goal?</label>
                 <select id="goal" name="goal">

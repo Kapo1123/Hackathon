@@ -2,12 +2,12 @@ from openai import OpenAI
 import os
 current_directory = os.getcwd()
 print(f"Current working directory: {current_directory}")
-import backend.config as config
+import config as config
 import json
 from core.utils import Goal, Context, Timeline, Budget, coaches, gpt_reponse
-# import os
-# current_directory = os.getcwd()
-# print(f"Current Working Directory: {current_directory}")
+import os
+current_directory = os.getcwd()
+print(f"Current Working Directory: {current_directory}")
 from openai.types.chat.chat_completion_message_param import ChatCompletionMessageParam
 client = OpenAI()
 Message = ChatCompletionMessageParam
@@ -42,10 +42,10 @@ class generate_reposnse:
 
 
 
-goal = Goal("medical_school")
-context = Context("sophomore")
-timeline = Timeline("1 year")
-budget = Budget("Middle")
+goal = Goal("med_school")
+context = Context("Sophomore")
+timeline = Timeline("1_year")
+budget = Budget("medium")
 test_generate = generate_reposnse(goal, context, timeline, budget)
 test_generate.generate_response()
 
