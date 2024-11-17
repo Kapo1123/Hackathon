@@ -126,17 +126,21 @@
       <ul>
         <!-- Display one Goal -->
         {% if value.goal %}
-          <li><strong>Goal:</strong> {{ value.goal.0 }}</li>
+          <li><strong>Goal:</strong> {{value.goal.0}}</li>
         {% endif %}
 
         <!-- Display two Actions -->
         {% if value.action %}
           {% for action in value.action|slice:":2" %}
-            <li><strong>Action:</strong> {{ action }}</li>
+            <li><strong>Action:</strong> {{action}}</li>
           {% endfor %}
         {% endif %}
 
-        <li><strong>Coaches:</strong> {{ value.coaches }}</li>
+        <li>
+          <a href="your-link-url">
+            <strong>Coach:</strong> {{ value.coaches }}
+          </a>
+        </li>
       </ul>
     </div>
     {% endfor %}

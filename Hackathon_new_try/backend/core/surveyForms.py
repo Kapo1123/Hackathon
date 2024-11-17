@@ -10,7 +10,7 @@ class SurveyForm(forms.Form):
         ('6_months', '6 Months'),
         ('1_year', '1 Year'),
         ('2_years', '2 Years'),
-        ('4_years', '4 Years'),
+        ('4_year', '4 Years'),
     ]
     BUDGET_CHOICES = [
         ('low', 'Low'),

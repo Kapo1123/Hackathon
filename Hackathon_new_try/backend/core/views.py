@@ -4,6 +4,8 @@ from django.template.loader import get_template
 from core.chatgpt import generate_reposnse
 from core.utils import Goal, Context, Timeline, Budget
 from core.surveyForms import SurveyForm
+import time
+
 
 class HomeView(View):
     def get(self, request):
@@ -65,17 +67,13 @@ class SurveyView(View):
 class Roadmap(View):
     def post(self, request, **kwargs):
         form = SurveyForm(request.POST)
+        time.sleep(5)
         if form.is_valid():
             print("This is valid")
             goal_ = Goal(form.cleaned_data['goal'])
             context_ = Context(form.cleaned_data['education'])
             timeline_ = Timeline(form.cleaned_data['timeline'])
             budget_ = Budget(form.cleaned_data['budget'])
-
-            print(goal_)
-            print(context_)
-            print(timeline_)
-            print(budget_)
 
             chatgpt = generate_reposnse(goal_, context_, timeline_, budget_)
             response = chatgpt.generate_response()

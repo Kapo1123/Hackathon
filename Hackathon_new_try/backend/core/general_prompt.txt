@@ -5,10 +5,10 @@ Here is an example input:
  Timeline: 4 years
  Coaching Budget: low
  This is the expected output format:
- ["year1": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":1}
- ,"year2": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":2},
- "year3": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":4},
- "year4": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":12}
+ ["Year 1": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":1}
+ ,"Year 2": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":2},
+ "Year 3": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":4},
+ "Year 4": {"goal":["goal1","goal2"], "action":["action1,action2,action3,action4],"coaches":12}
  ]
  Goal: Medical school
  Context: Senior, 

@@ -14,7 +14,7 @@ class Context:
         self.level = level
        
 class Timeline:
-    ALLOWED_GOALS = ("6_months", "1_year", "2_years", "4_years") 
+    ALLOWED_GOALS = ("6_months", "1_year", "2_years", "4_year") 
     def __init__(self,time):
         if time not in self.ALLOWED_GOALS:
             raise ValueError(f"Invalid time. Allowed time are: {', '.join(self.ALLOWED_GOALS)}")
